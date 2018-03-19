@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Perfect Scense Blog.</title>
+
+  <link rel="stylesheet" href="../../css/default.css">
+	<link rel="stylesheet" href="../../css/layout.css">  
+	<link rel="stylesheet" href="../../css/media-queries.css"> 
+  <link rel="stylesheet" href="../../css/login.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+	<script src="../../js/modernizr.js"></script>
+
+	<link rel="shortcut icon" href="../../images/favicon.ico" >
+  <script type="text/javascript">
+    window._title = "{{title}}";
+  </script>
+</head>
+
+</head>
+
+<body>
+
+   <!-- Header
+   ================================================== -->
+   <header id="top">
+
+   	<div class="row">
+
+   		<div class="header-content twelve columns">
+
+		      <h1 id="logo-text"><a href="/home" title="">Perfect Sense Blog Project</a></h1>
+				<p id="intro">Blogging what else !!!</p>
+
+			</div>			
+
+	   </div>
+
+	   <nav id="nav-wrap"> 
+
+	   	<div class="row">    		            
+
+			   	<ul id="nav" class="nav">
+			      	<li><a href="/home">Home</a></li>	      	
+              <li class="has-children"><a href="#"><span id="handle-name">User<span></a>
+                    <ul>
+                       <div class="login-opt"><li ><p><a href="#ex1" rel="modal:open" class="modal-reset">Login</a></p></li></div>
+                       <div class="login-opt"><li ><p><a href="#ex2" rel="modal:open" class="modal-reset">Register</a></p></li></div>
+                       <div class="logout-opt"><li ><p><a href="#exblogaddpop" rel="modal:open"  class="modal-reset">Add Blog</a></p></li></div>
+                       <div class="logout-opt"><li id="logoutbtn"><p><a href="#ex3" rel="modal:open" class="modal-reset">Logout</a></p></li></div>
+                    </ul>
+              </li>
+			   	</ul> <!-- end #nav -->			   	 
+
+	   	</div> 
+
+	   </nav> <!-- end #nav-wrap -->  	     
+
+   </header> <!-- Header End -->
+
+   <!-- Content
+   ================================================== -->
+   <div id="content-wrap">
+
+   	<div class="row">
+
+   		<div id="main" class="eight columns">
+						
+        <div id="blognotfound">
+          <h2>Oops.. No Blog Found .... :( :( </h2>
+
+          <h2>May Be You Should Write One :) </h2>
+        </div>
+
+   		</div> <!-- end main -->
+
+   		<div id="sidebar" class="four columns">
+
+   			<div class="widget widget_search">
+                  <h3>Search</h3> 
+                  <form>
+
+                     <input type="text" value="Search here..." onblur="if(this.value == '') { this.value = 'Search here...'; }" onfocus="if (this.value == 'Search here...') { this.value = ''; }" class="text-search" id="search-blog-input">
+                     <input value="" class="submit-search" id="search-blog-btn">
+
+                  </form>
+               </div>
+
+   			<div class="widget widget_tags">
+               <h3>Post Tags.</h3>
+
+               <div class="tagcloud group" id="tagplace">
+               </div>
+                  
+            </div>
+
+            <div class="widget widget_popular">
+               <h3>Popular Post.</h3>
+
+               <ul class="link-list">                   
+               </ul>
+                  
+            </div>
+   			
+   		</div> <!-- end sidebar -->
+
+             <div class="eight columns pointer">
+              <p>
+              <a id="load-more-blog-title">Load More</a>             
+              </p>
+            </div>
+
+   	</div> <!-- end row -->
+
+   </div> <!-- end content-wrap -->
+   
+
+   <!-- Footer
+   ================================================== -->
+   <footer>
+
+      <div class="row"> 
+
+      	<div class="twelve columns">	
+				<ul class="social-links">
+               <li><a><i class="fa fa-facebook"></i></a></li>
+               <li><a><i class="fa fa-twitter"></i></a></li>
+               <li><a><i class="fa fa-google-plus"></i></a></li>               
+               <li><a><i class="fa fa-github-square"></i></a></li>
+               <li><a><i class="fa fa-instagram"></i></a></li>
+               <li><a><i class="fa fa-flickr"></i></a></li>               
+               <li><a><i class="fa fa-skype"></i></a></li>
+            </ul>			
+      	</div>
+
+         <p class="copyright">&copy; Copyright 2014 Keep It Simple. &nbsp; Design by <a title="Styleshout" href="http://www.styleshout.com/">Styleshout</a>.</p>
+        
+      </div> <!-- End row -->
+
+      <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-chevron-up"></i></a></div>
+
+   </footer> <!-- End Footer-->
+
+<!--Blog Add-->
+  <div class="modal modal-box" id="exblogaddpop" role="dialog">
+    <div class="post-nav group prev modal-head">
+          <h2>Add Blog</h2>
+        </div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <a href="#" rel="modal:close" id="blogAddClose"></a>
+        </div>
+        
+        <div>
+          <form name="contactForm" id="blogAddForm" method="post" action="">
+         <fieldset>
+
+               <div class="message group">
+                        
+                        <div class="group">
+                        <label for="batitle">Title <span class="required">*</span></label>
+                        <input name="batitle" type="text" id="batitle" size="35" value="" />
+                        <span id="batext-valid-title" class="required validation-label invisible">Cannot be empty</span>
+                        </div>
+
+                        <div class="group">
+                        <label for="batags">Tags (Comma Seperated) <span class="required">*</span></label>
+                        <input name="batags" type="text" id="batags" size="35" value="" />
+                        <span id="batext-valid-tags" class="required validation-label invisible">Cannot be empty</span>
+                        </div>
+
+                        <div class="group">
+                        <label for="basummary">Summary <span class="required">*</span></label>
+                        <textarea name="basummary" type="textarea" rows="10" cols="50" id="basummary"></textarea>
+                        <span id="batext-valid-summary" class="required validation-label invisible">Cannot be empty</span>
+                        </div>
+
+                        <div class="group">
+                        <label for="bacontent">Content <span class="required">*</span></label>
+                        <textarea name="bacontent" type="textarea" rows="10" cols="50" id="bacontent"></textarea>
+                        <span id="batext-valid-content" class="required validation-label invisible">Cannot be empty</span>
+                        <span id="batext-valid-gen" class="required validation-label invisible">Server error, please try again later !!</span>
+                        </div>
+                     </div>
+              
+               <button id="blog-add-edit-btn" type='button'>Add Blog</button>
+
+         </fieldset>
+          </form> <!-- Form End -->
+        </div>
+  </div>
+
+<!--Login Element-->
+
+  <!-- Login / Register Modal-->
+  <div class="modal modal-box" id="ex1" role="dialog">
+    <div class="post-nav group prev modal-head">
+          <h2>Login</h2>
+        </div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <a href="#" rel="modal:close" id="loginClose"></a>
+        </div>
+        
+        <div>
+          <form name="contactForm" id="loginForm" method="post" action="">
+         <fieldset>
+
+               <div class="group">
+              <label for="lemail">Email <span class="required">*</span></label>
+              <input name="lemail" type="email" id="lemail" size="35" value="" />
+              <span id="login-valid-email" class="required validation-label invisible">Invalid Email</span>
+               </div>
+
+               <div class="group">
+              <label for="lpass">Password <span class="required">*</span></label>
+              <input name="lpass" type="password" id="lpass" size="35" value="" />
+              <span id="login-valid-pass" class="required validation-label invisible">Invalid Email/Password</span>
+              <span id="login-valid-gen" class="required validation-label invisible">Server error, please try again later !!</span>
+               </div>
+              
+               <button id="loginbtn" type='button' class="submit-button">Login</button>
+
+         </fieldset>
+          </form> <!-- Form End -->
+        </div>
+  </div>
+
+  <!-- Register Modal-->
+  <div class="modal modal-box" id="ex2" role="dialog">
+    <div class="post-nav group prev modal-head">
+          <h2>Login</h2>
+        </div>
+    <div class="modal-content">
+    <div class="modal-content">
+        <div class="modal-header">
+            <a href="#" rel="modal:close" id="registerClose"></a>
+        </div>
+
+        <div>
+          <form name="contactForm" id="registerForm" method="post" action="">
+         <fieldset>
+
+               <div class="group">
+              <label for="remail">Email <span class="required">*</span></label>
+              <input name="remail" type="email" id="remail" size="35" value="" />
+              <span id="regi-valid-email" class="required validation-label invisible">Invalid Email</span>
+               </div>
+
+               <div class="group">
+              <label for="rfname">First Name <span class="required">*</span></label>
+              <input name="rfname" type="email" id="rfname" size="35" value="" />
+              <span id="regi-valid-fname" class="required validation-label invisible">Cannot be empty</span>
+               </div>
+
+               <div class="group">
+              <label for="rlname">Last Name <span class="required">*</span></label>
+              <input name="rlname" type="email" id="rlname" size="35" value="" />
+              <span id="regi-valid-lname" class="required validation-label invisible">Cannot be empty</span>
+               </div>
+
+                <div class="group">
+              <label for="rhandle">handle <span class="required">*</span></label>
+              <input name="rhandle" type="text" id="rhandle" size="35" value="" />
+              <span id="regi-valid-handle" class="required validation-label invisible">Cannot be empty</span>
+               </div>
+
+               <div class="group">
+              <label for="rpass">Password <span class="required">*</span></label>
+              <input name="rpass" type="password" id="rpass" size="35" value="" />
+              <span id="regi-valid-pass" class="required validation-label invisible">Cannot be empty</span>
+              <span id="regi-valid-email-exist" class="required validation-label invisible">Registration exists with this email</span>
+              <span id="regi-valid-gen" class="required validation-label invisible">Server error, please try again later !!</span>
+               </div>
+
+               
+
+               <button id="registerbtn" type='button' class="submit-button">Register</button>
+
+         </fieldset>
+          </form> <!-- Form End -->
+        </div>
+  </div>
+
+	<!--Hidden Element-->
+	<div style="display: none;">
+		<div id="blogElementBluePrint">
+			<article class="entry" id="#blogid">
+				<header class="entry-header">
+					<h2 class="entry-title">
+						<a href="/blog/#blogid" title="">#title</a>
+					</h2>
+					<div class="entry-meta">
+						<ul>
+							<li>Created	#createdate</li>
+							<span class="meta-sep">&bull;</span>
+							<li>Mdified #modifieddate</li>
+							<span class="meta-sep">&bull;</span>
+							<li> Tags - 
+								#tag
+							</li>
+							<span class="meta-sep">&bull;</span>
+							<li>Author #author</li>
+							<!--
+              <span class="meta-sep">&bull;</span>
+              <li>Like #like</li>
+              <span class="meta-sep">&bull;</span>
+              <li>Dislike #dislike</li>
+              -->
+							<span class="meta-sep">&bull;</span>
+							<li>Comment #comment</li>
+						</ul>
+					</div>
+				</header>
+				<div class="entry-content">
+					<p>#summary</p>
+				</div>
+			</article>
+		</div>
+		<div id="tagElementBluePrint">
+			<a href="#place" title="" rel="category tag">#tag</a>
+		</div>
+	</div>
+
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="../../js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="../../js/jquery-migrate-1.2.1.min.js"></script>  
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+   <script src="../../js/main.js"></script>
+   <script src="../../js/common.js"></script>
+   <script src="../../js/blog-title.js"></script>
+</body>
+
+</html>

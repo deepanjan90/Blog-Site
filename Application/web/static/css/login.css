@@ -1,0 +1,15 @@
+.login-visible{
+	display: none;
+}
+
+.login-invisible{
+	display: block;
+}
+
+.logout-visible{
+	display: none;
+}
+
+.logout-invisible{
+	display: block;
+}

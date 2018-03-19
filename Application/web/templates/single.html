@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Perfect Scense Blog.</title>
+
+  <link rel="stylesheet" href="../css/default.css">
+	<link rel="stylesheet" href="../css/layout.css">  
+	<link rel="stylesheet" href="../css/media-queries.css">
+  <link rel="stylesheet" href="../css/login.css">     
+  <!-- jQuery Modal -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+
+	<script src="../js/modernizr.js"></script>
+
+	<link rel="shortcut icon" href="../images/favicon.ico" >
+  <script type="text/javascript">
+    window._blogid = "{{blogid}}";
+  </script>
+</head>
+
+<body class="single">
+
+   <!-- Header
+   ================================================== -->
+   <header id="top">
+
+   	<div class="row">
+
+   		<div class="header-content twelve columns">
+
+		      <h1 id="logo-text"><a href="../home" title="">Perfect Sense Blog Project</a></h1>
+				<p id="intro">Blogging what else !!!</p>
+
+			</div>			
+
+	   </div>
+
+	   <nav id="nav-wrap"> 
+
+	   	<div class="row">    		            
+
+			   	<ul id="nav" class="nav">
+			      	<li><a href="../home">Home</a></li>	      	
+              <li class="has-children"><a href="#"><span id="handle-name">User<span></a>
+                    <ul>
+                       <div class="login-opt"><li ><p><a href="#ex1" rel="modal:open" class="modal-reset">Login</a></p></li></div>
+                       <div class="login-opt"><li ><p><a href="#ex2" rel="modal:open" class="modal-reset">Register</a></p></li></div>
+                       <div class="logout-opt"><li ><p><a href="#exblogaddpop" rel="modal:open"  class="modal-reset" id="blog-add-pop">Add Blog</a></p></li></div>
+                       <div class="logout-opt"><li id="logoutbtn"><p><a href="#ex3" rel="modal:open" class="modal-reset">Logout</a></p></li></div>
+
+                    </ul>
+              </li>
+              <li ><p><a href="#excommentpop" rel="modal:open" class="invisible" id="commentpop"></a></p></li>
+              <li ><p><a href="#exblogaddpop" rel="modal:open" class="invisible" id="blog-edit-pop"></a></p></li>
+			   	</ul> <!-- end #nav -->			   	 
+	   	</div> 
+
+	   </nav> <!-- end #nav-wrap -->  	     
+
+   </header> <!-- Header End -->
+
+   <!-- Content
+   ================================================== -->
+   <div id="content-wrap">
+
+   	<div class="row">
+
+   		<div id="main" class="eight columns">
+
+   			<article class="entry">
+
+					<header class="entry-header">
+
+						<h2 class="entry-title" id="title">
+							
+						</h2> 				 
+				
+						<div class="entry-meta">
+							<ul>
+								<li id="created"></li>
+								<span class="meta-sep">&bull;</span>							
+								<li id="authorhandle"></li>
+							</ul>
+						</div> 
+				 
+					</header> 
+				
+          <!-- Blog Image
+					<div class="entry-content-media">
+						<div class="post-thumb">
+							<img src="images/m-farmerboy.jpg">
+						</div> 
+					</div> -->
+
+					<div class="entry-content">
+						<h4>Summary </h4>
+            <p class="lead" id="summary"></p>
+
+            <h5>Main </h5>
+						<p id="content"> </p>
+
+					</div> 
+
+          <!--like and dislike
+		       <ul class="post-nav group">
+		            <li class="prev"><a href="#"><strong><span id="like">0</span> Likes</strong></a></li>
+			         <li class="next"><a href="#"><strong><span id="dislike">0</span> Dislikes</strong></a></li>
+		        </ul>
+          -->
+
+				</article>
+
+            <div class="pagenav invisible" id="edit-delete-blog">
+              <p>
+              <a class="pointer" id="edit-blog">Edit</a>
+              <span class="sep">/</span>     
+              <a class="pointer" id="delete-blog">Delete</a>         
+              </p>
+            </div>  
+
+
+				<!-- Comments
+            ================================================== -->
+            <div id="comments">
+
+               <h3><span id="commentcount">0</span> Comments</h3>
+
+               <!-- commentlist -->
+               <ol class="commentlist">
+
+               </ol> <!-- Commentlist End -->
+
+              <p>
+              <a id="load-more-comment" class="pointer">Load More</a>             
+              </p>
+
+               <!-- respond -->
+               <div class="respond">
+
+                  <h3>Leave a Comment</h3>
+
+                     <div class="message group">
+                        <label  for="cMessage">Message <span class="required">*</span></label>
+                        <textarea name="cMessage"  id="cMessage" rows="10" cols="50" ></textarea>
+                     </div>
+
+                     <button type="submit" class="submit">Submit</button>
+
+               </div> <!-- Respond End -->
+
+            </div>  <!-- Comments End -->		
+   			
+
+   		</div> <!-- main End -->
+
+   		<div id="sidebar" class="four columns">
+
+        <div class="widget widget_search">
+                  <h3>Search</h3> 
+                  <form>
+
+                     <input type="text" value="Search here..." onblur="if(this.value == '') { this.value = 'Search here...'; }" onfocus="if (this.value == 'Search here...') { this.value = ''; }" class="text-search" id="search-blog-input">
+                     <input value="" class="submit-search" id="search-blog-btn">
+
+                  </form>
+               </div>
+
+        <div class="widget widget_tags">
+               <h3>Post Tags.</h3>
+
+               <div class="tagcloud group" id="tagplace">
+               </div>
+                  
+            </div>
+
+            <div class="widget widget_popular">
+               <h3>Popular Post.</h3>
+
+               <ul class="link-list">                    
+               </ul>
+                  
+            </div>
+        
+      </div> <!-- end sidebar -->
+
+  		</div> <!-- end row -->
+
+   </div> <!-- end content-wrap -->   
+
+   <!-- Footer
+   ================================================== -->
+   <footer>
+
+      <div class="row"> 
+
+      	<div class="twelve columns">	
+				<ul class="social-links">
+               <li><a><i class="fa fa-facebook"></i></a></li>
+               <li><a><i class="fa fa-twitter"></i></a></li>
+               <li><a><i class="fa fa-google-plus"></i></a></li>               
+               <li><a><i class="fa fa-github-square"></i></a></li>
+               <li><a><i class="fa fa-instagram"></i></a></li>
+               <li><a><i class="fa fa-flickr"></i></a></li>               
+               <li><a><i class="fa fa-skype"></i></a></li>
+            </ul>			
+      	</div>
+
+         <p class="copyright">&copy; Copyright 2014 Keep It Simple. &nbsp; Design by <a title="Styleshout" href="http://www.styleshout.com/">Styleshout</a>.</p>
+        
+      </div> <!-- End row -->
+
+      <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-chevron-up"></i></a></div>
+
+   </footer> <!-- End Footer-->
+
+  <!--Comment Edit-->
+  <div class="modal modal-box" id="excommentpop" role="dialog">
+    <div class="post-nav group prev modal-head">
+          <h2>Edit Comment</h2>
+        </div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <a href="#" rel="modal:close" id="commentEditClose"></a>
+        </div>
+        
+        <div>
+          <form name="contactForm" id="commentEditForm" method="post" action="">
+         <fieldset>
+
+               <div class="message group">
+                        <span id="comment-edit-author" class="display-none"></span>
+                        <span type="text" name="" id="comment-edit-id" class="display-none"></span>
+                        <textarea name="cetext" type="textarea" rows="10" cols="50" id="comment-text-area"></textarea>
+                        <span id="cetext-valid-comment" class="required validation-label invisible">Cannot be empty</span>
+                        <span id="cetext-valid-gen" class="required validation-label invisible">Server error, please try again later !!</span>
+                     </div>
+              
+               <button id="commentEditbtn" type='button'>Update</button>
+
+         </fieldset>
+          </form> <!-- Form End -->
+        </div>
+  </div>
+
+<!--Blog Add-->
+  <div class="modal modal-box" id="exblogaddpop" role="dialog">
+    <div class="post-nav group prev modal-head">
+          <h2 id="blog-add-edit-title">Add Blog</h2>
+        </div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <a href="#" rel="modal:close" id="blogAddClose"></a>
+        </div>
+        
+        <div>
+          <form name="contactForm" id="blogAddForm" method="post" action="">
+         <fieldset>
+
+               <div class="message group">
+                        
+                        <div class="group">
+                        <label for="batitle">Title <span class="required">*</span></label>
+                        <input name="batitle" type="text" id="batitle" size="35" value="" />
+                        <span id="batext-valid-title" class="required validation-label invisible">Cannot be empty</span>
+                        </div>
+
+                        <div class="group">
+                        <label for="batags">Tags (Comma Seperated) <span class="required">*</span></label>
+                        <input name="batags" type="text" id="batags" size="35" value="" />
+                        <span id="batext-valid-tags" class="required validation-label invisible">Cannot be empty</span>
+                        </div>
+
+                        <div class="group">
+                        <label for="basummary">Summary <span class="required">*</span></label>
+                        <textarea name="basummary" type="textarea" rows="10" cols="50" id="basummary"></textarea>
+                        <span id="batext-valid-summary" class="required validation-label invisible">Cannot be empty</span>
+                        </div>
+
+                        <div class="group">
+                        <label for="bacontent">Content <span class="required">*</span></label>
+                        <textarea name="bacontent" type="textarea" rows="10" cols="50" id="bacontent"></textarea>
+                        <span id="batext-valid-content" class="required validation-label invisible">Cannot be empty</span>
+                        <span id="batext-valid-gen" class="required validation-label invisible">Server error, please try again later !!</span>
+                        </div>
+                     </div>
+              
+               <button id="blog-add-edit-btn" type='button'>Add Blog</button>
+
+         </fieldset>
+          </form> <!-- Form End -->
+        </div>
+  </div>
+
+  <!--Login Element-->
+
+  <!-- Login / Register Modal-->
+  <div class="modal modal-box" id="ex1" role="dialog">
+    <div class="post-nav group prev modal-head">
+          <h2>Login</h2>
+        </div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <a href="#" rel="modal:close" id="loginClose"></a>
+        </div>
+        
+        <div>
+          <form name="contactForm" id="loginForm" method="post" action="">
+         <fieldset>
+
+               <div class="group">
+              <label for="lemail">Email <span class="required">*</span></label>
+              <input name="lemail" type="email" id="lemail" size="35" value="" />
+              <span id="login-valid-email" class="required validation-label invisible">Invalid Email</span>
+               </div>
+
+               <div class="group">
+              <label for="lpass">Password <span class="required">*</span></label>
+              <input name="lpass" type="password" id="lpass" size="35" value="" />
+              <span id="login-valid-pass" class="required validation-label invisible">Invalid Email/Password</span>
+              <span id="login-valid-gen" class="required validation-label invisible">Server error, please try again later !!</span>
+               </div>
+              
+               <button id="loginbtn" type='button' class="submit-button">Login</button>
+
+         </fieldset>
+          </form> <!-- Form End -->
+        </div>
+  </div>
+
+  <!-- Register Modal-->
+  <div class="modal modal-box" id="ex2" role="dialog">
+    <div class="post-nav group prev modal-head">
+          <h2>Login</h2>
+        </div>
+    <div class="modal-content">
+    <div class="modal-content">
+        <div class="modal-header">
+            <a href="#" rel="modal:close" id="registerClose"></a>
+        </div>
+
+        <div>
+          <form name="contactForm" id="registerForm" method="post" action="">
+         <fieldset>
+
+               <div class="group">
+              <label for="remail">Email <span class="required">*</span></label>
+              <input name="remail" type="email" id="remail" size="35" value="" />
+              <span id="regi-valid-email" class="required validation-label invisible">Invalid Email</span>
+               </div>
+
+               <div class="group">
+              <label for="rfname">First Name <span class="required">*</span></label>
+              <input name="rfname" type="email" id="rfname" size="35" value="" />
+              <span id="regi-valid-fname" class="required validation-label invisible">Cannot be empty</span>
+               </div>
+
+               <div class="group">
+              <label for="rlname">Last Name <span class="required">*</span></label>
+              <input name="rlname" type="email" id="rlname" size="35" value="" />
+              <span id="regi-valid-lname" class="required validation-label invisible">Cannot be empty</span>
+               </div>
+
+                <div class="group">
+              <label for="rhandle">handle <span class="required">*</span></label>
+              <input name="rhandle" type="text" id="rhandle" size="35" value="" />
+              <span id="regi-valid-handle" class="required validation-label invisible">Cannot be empty</span>
+               </div>
+
+               <div class="group">
+              <label for="rpass">Password <span class="required">*</span></label>
+              <input name="rpass" type="password" id="rpass" size="35" value="" />
+              <span id="regi-valid-pass" class="required validation-label invisible">Cannot be empty</span>
+              <span id="regi-valid-email-exist" class="required validation-label invisible">Registration exists with this email</span>
+              <span id="regi-valid-gen" class="required validation-label invisible">Server error, please try again later !!</span>
+               </div>
+
+               
+
+               <button id="registerbtn" type='button' class="submit-button">Register</button>
+
+         </fieldset>
+          </form> <!-- Form End -->
+        </div>
+  </div>
+
+    <!--Hidden Element-->
+    <div style="display: none;">
+      <div id="commentElementBluePrint">
+        <li class="depth-1" id="#commentid" authorid="#authorid">
+           <div class="avatar">
+              <img width="50" height="50" class="avatar" src="../images/user-01.png" alt="">
+           </div>
+           <div class="comment-content">
+               <div class="comment-info">
+                  <cite>#author</cite>
+               </div>
+               <div class="comment-text">
+                  <p>#content</p>
+               </div>
+               <div class="comment-info">
+                  <div class="comment-meta">
+                     <span class="comment-time">Posted: #createdate</span>
+                     <span class="sep" style="display: #edi;">/</span><span class="comment-time" style="display: #edi;">Editted: #modifieddate</span>
+                     <!--like dislike
+                     <span class="sep">/</span><a class="reply" href="#"><span>#like</span> Like</a>
+                     <span class="sep">/</span><a class="reply" href="#"><span>#dislike</span> Dislike</a>
+                     -->
+                     <span class="sep" style="display: none;">/</span><a class="edit-comment pointer" style="display: none;">Edit</a>
+                     <span class="sep" style="display: none;">/</span><a class="delete-comment pointer" style="display: none;">Delete</a>
+                     <!--<span class="sep">/</span><a class="reply" href="#">Reply</a>-->
+                  </div>
+               </div>
+            </div>
+        </li>
+      </div>
+    </div>
+
+	<!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="../js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="../js/jquery-migrate-1.2.1.min.js"></script>  
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+   <script src="../js/main.js"></script>
+   <script src="../js/common.js"></script>
+   <script src="../js/single.js"></script>
+
+</body>
+
+</html>
